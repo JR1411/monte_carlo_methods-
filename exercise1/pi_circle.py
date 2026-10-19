@@ -53,6 +53,7 @@ for n in N_samples:
     pi_array.append(pi_approx)
 
 print(pi_array[::10000])
+print(np.std(pi_array))
 
 ax[1].set_title(f"{pi_array[-1]}")
 ax[0].scatter(dots_x, dots_y, color=dotcolor, marker="o", s=5)
