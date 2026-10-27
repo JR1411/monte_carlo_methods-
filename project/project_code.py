@@ -125,13 +125,7 @@ def scan(betas, sizes, fields):
                 result = simulate(L, beta, h)
                 measurements.append(result)
 
-                #print(
-           #         f"h={h:.1f}, L={L}, "
-            #        f"beta={beta:.3f}, "
-             #f"accept={result['acceptance']:.2f}"
-              #  )
-
-            results[(h, L)] = measurements
+                results[(h, L)] = measurements
 
     return results
 
