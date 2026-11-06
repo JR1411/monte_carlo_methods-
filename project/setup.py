@@ -1,3 +1,4 @@
+import csv
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -130,9 +131,46 @@ betas = np.linspace(0.2, 1.2, 15)
 sizes = [8, 12, 16]
 fields = [0.0, 0.1, 0.2]
 
+
+def save_results_csv(results, filename="phi4_results.csv"):
+    with open(filename, "w", newline="") as file:
+        writer = csv.writer(file)
+
+        writer.writerow([
+            "h", "L", "beta", "M", "abs_M",
+            "chi_M", "chi_A", "binder",
+            "action_density", "acceptance"
+        ])
+
+        for h, lattice_data in results.items():
+            for L, beta_data in lattice_data.items():
+                for beta, obs in beta_data.items():
+                    writer.writerow([
+                        h, L, beta,
+                        obs["M"],
+                        obs["abs_M"],
+                        obs["chi_M"],
+                        obs["chi_A"],
+                        obs["binder"],
+                        obs["action_density"],
+                        obs["acceptance"]
+                    ])
+
+
 results = scan(betas, sizes, fields)
 
 
+results = {}
+
+for h in fields:
+    for L in sizes:
+        for beta in betas:
+            simulation_result = simulate(L, beta, h)
+            results.setdefault(h, {}).setdefault(
+                L, {})[float(beta)] = simulation_result
+
+save_results_csv(results)
+exit()
 # Plot magnetization susceptibility
 fig, axes = plt.subplots(1, 3, figsize=(15, 4))
 
