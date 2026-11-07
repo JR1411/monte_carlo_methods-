@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt 
 import pandas as pd 
+import numpy as np 
 
 
 df = pd.read_csv("./phi4_results.csv") 
@@ -35,20 +36,24 @@ acceptance_l16_h1 = acceptance[105:119]
 beta_l16_h2 = beta[120:136] 
 acceptance_l16_h2 = acceptance[120:136] 
 
+print(np.average(acceptance))
+
 plt.plot(beta_l8_h0 , acceptance_l8_h0 , "o-" , label = "h=0") 
 plt.plot(beta_l8_h1 , acceptance_l8_h1 , "o-" , label = "h=0.1") 
 plt.plot(beta_l8_h2 , acceptance_l8_h2 , "o-" , label = "h=0.2") 
+plt.axhline(0.5 ,0, beta.max() , color = "red" , label = "target acceptance") 
 plt.legend(fontsize = 15) 
 plt.ylabel("acceptance",fontsize = 15) 
 plt.xlabel("beta" , fontsize = 15) 
 plt.tick_params("both" ,labelsize = 15) 
-plt.title("acceptance at h=0" , fontsize = 15)
+plt.title("acceptance at h=0" , fontsize = 15) 
 plt.show() 
 
 
 plt.plot(beta_l12_h0 , acceptance_l12_h0 , "o-" , label = "h=0") 
 plt.plot(beta_l12_h1 , acceptance_l12_h1 , "o-" , label = "h=0.1") 
 plt.plot(beta_l12_h2 , acceptance_l12_h2 , "o-" , label = "h=0.2") 
+plt.axhline(0.5 , 0 , beta.max() , color = "red" , label = "target acceptance") 
 plt.legend(fontsize = 15) 
 plt.ylabel("acceptance",fontsize = 15) 
 plt.xlabel("beta" , fontsize = 15) 
@@ -60,9 +65,10 @@ plt.show()
 plt.plot(beta_l16_h0 , acceptance_l16_h0 , "o-" , label = "h=0") 
 plt.plot(beta_l16_h1 , acceptance_l16_h1 , "o-" , label = "h=0.1") 
 plt.plot(beta_l16_h2 , acceptance_l16_h2 , "o-" , label = "h=0.2") 
+plt.axhline(0.5 , 0 , beta.max() , color = "red" , label = "target acceptance") 
 plt.legend(fontsize = 15) 
 plt.ylabel("acceptance",fontsize = 15) 
 plt.xlabel("beta" , fontsize = 15) 
 plt.tick_params("both" ,labelsize = 15) 
-plt.title("acceptance at h=0.2" ,fontsize = 15)
+plt.title(f"acceptance at h=0.2" ,fontsize = 15)
 plt.show() 
