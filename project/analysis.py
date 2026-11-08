@@ -23,7 +23,7 @@ plt.legend(fontsize=15)
 plt.title("Magnetization at h=0 ",fontsize = 15) 
 plt.xlabel(r"$\beta$" ,fontsize = 15) 
 plt.ylabel("M",fontsize = 15) 
-plt.tick_params("both",labelsize = 15)
+plt.tick_params("both",labelsize = 15) 
 plt.show() 
 
 
