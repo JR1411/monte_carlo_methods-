@@ -19,4 +19,8 @@ acceptance :
 	python analysis6.py 
 
 
+crit_betas : 
+	python calc_crit_beta.py 
+
+
 
