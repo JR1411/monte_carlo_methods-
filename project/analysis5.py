@@ -64,7 +64,6 @@ plt.legend(fontsize = 15)
 plt.xlabel(r"$\beta$" , fontsize = 15) 
 plt.ylabel(r"$\chi$" , fontsize = 15) 
 plt.title(r"$\chi_M$ at L=16",fontsize = 15) 
-plt.tick_params("both",labelsize = 15) 
 plt.show() 
 
 

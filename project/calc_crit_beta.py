@@ -40,7 +40,7 @@ def critical_beta(df , h):
     plt.legend(fontsize = 15)
     plt.grid(alpha=0.3) 
     plt.tick_params("both" , labelsize = 15) 
-    plt.title(f"critical_beta = {beta_c:.5f}",fontsize = 15)
+    plt.title(f"critical_beta = {beta_c:.5f}",fontsize = 15) 
     plt.show()
 
 
